@@ -1,3 +1,6 @@
+#Author: John Omoluabi (Data Analyst Intern)
+#Organisation: Akena Associates
+
 # import dependencies
 import pandas as pd
 import numpy as np
@@ -195,8 +198,6 @@ for i in selection['Interviewer Name']:
         temp.append(x.iloc[0])
 selection['Interviewer Name']=temp
 
-
-
 #summary feature
 
 # replace missing values with whitespace
@@ -229,3 +230,4 @@ summary_engine(s2,total_concurrent,total_selected)
 summary_engine(s3,total_stopper,total_selected)
 summary_engine(s4,total_switcher,total_selected)
 summary=pd.DataFrame(a,columns=["","N","Total","%"])
+
