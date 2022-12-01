@@ -198,3 +198,37 @@ for i in selection['Interviewer Name']:
         temp.append(x.iloc[0])
 selection['Interviewer Name']=temp
 selection
+
+#table summary
+#summary feature
+
+# replace missing values with whitespace
+selection.replace("nan",np.nan,inplace=True)
+selection.replace(np.nan,'',inplace=True)
+
+s1="Consistent User"
+s2="Concurrent User"
+s3="Stopper"
+s4="Switcher"
+
+total_resp=data.shape[0]
+total_selected=selection.shape[0]
+total_consistent=selection[selection['Profile']==s1].shape[0]
+total_concurrent=selection[selection['Profile']==s2].shape[0]
+total_stopper=selection[selection['Profile']==s3].shape[0]
+total_switcher=selection[selection['Profile']==s4].shape[0]
+
+a=[]
+
+def summary_engine(tag,top,bottom):
+    _=round((top/bottom)*100,2)
+    b=[tag,top,bottom,_]
+    a.append(b)
+    # print(f'{tag}==>{top}/{bottom}, {_}%')
+    
+summary_engine("Selected",total_selected,total_resp)
+summary_engine(s1,total_consistent,total_selected)
+summary_engine(s2,total_concurrent,total_selected)
+summary_engine(s3,total_stopper,total_selected)
+summary_engine(s4,total_switcher,total_selected)
+pd.DataFrame(a,columns=["","N","Total","%"])
