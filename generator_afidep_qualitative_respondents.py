@@ -1,3 +1,6 @@
+#Author: John Omoluabi (Data Analyst Intern)
+#Organisation: Akena Associates
+
 # import dependencies
 import pandas as pd
 import numpy as np
