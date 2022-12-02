@@ -231,3 +231,5 @@ summary_engine(s3,total_stopper,total_selected)
 summary_engine(s4,total_switcher,total_selected)
 summary=pd.DataFrame(a,columns=["","N","Total","%"])
 
+selection.to_excel(excel_dir()+"selection.xlsx",sheet_name="profile",index=False)
+summary.to_excel(excel_dir()+"summary.xlsx",sheet_name="profile",index=False)
